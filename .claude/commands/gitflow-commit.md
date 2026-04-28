@@ -6,7 +6,6 @@ allowed-tools: Bash, Read, Grep, Glob
 
 # Git Flow Commit Process
 
-원본: `.cursor/skills/102-gitflow-agent/SKILL.md`
 
 커밋 목적: **$ARGUMENTS**
 

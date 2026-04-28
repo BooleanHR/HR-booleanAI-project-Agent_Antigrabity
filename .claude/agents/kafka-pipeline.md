@@ -7,7 +7,6 @@ model: sonnet
 
 # Kafka Data Pipeline Expert
 
-원본: `.cursor/skills/304-kafka-data-pipeline-rules/SKILL.md`
 
 ## 적용 범위
 - `src/main/java/**/*Kafka*`

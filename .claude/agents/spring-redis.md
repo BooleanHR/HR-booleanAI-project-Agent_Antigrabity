@@ -7,7 +7,6 @@ model: sonnet
 
 # Spring Redis (Lettuce / Redisson) Expert
 
-원본: `.cursor/skills/303-spring-redis-lettuce-redisson-rules/SKILL.md`
 
 ## 적용 범위
 - `src/main/java/**/*Redis*`

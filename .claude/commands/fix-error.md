@@ -6,7 +6,6 @@ allowed-tools: Read, Edit, Grep, Glob, Bash
 
 # Error Fixing Process
 
-원본: `.cursor/skills/100-error-fixing-process/SKILL.md`
 
 대상: **$ARGUMENTS**
 

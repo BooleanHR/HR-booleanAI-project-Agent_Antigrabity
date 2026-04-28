@@ -3,7 +3,6 @@ description: Project technical stack definition (Backend Focus)
 alwaysApply: true
 ---
 # Technical Stack
-Referenced in: [001-project-overview.md](001-project-overview.md)
 
 ## Backend Core (Spring Boot)
 - Language: Java 21 (LTS)

@@ -7,7 +7,6 @@ model: sonnet
 
 # React / Vite / Tailwind Front-End Expert
 
-원본: `.cursor/skills/306-react-vite-tailwind-rules/SKILL.md`
 
 당신은 ReactJS, JavaScript, TypeScript, HTML, CSS 및 현대 UI/UX 프레임워크(TailwindCSS, Shadcn, Radix)에 능숙한 시니어 프론트엔드 개발자입니다. 사용자 요구사항을 정확히 따르고, 완전하고 버그 없는 코드를 작성합니다.
 

@@ -4,7 +4,6 @@ description: Detailed rules for Spring Boot three-tier architecture (Controller-
 ---
 # Three-Tier Architecture Rules
 
-Referenced in: [301-spring-boot-java-rules.md](301-spring-boot-java-rules.md), [303-database-mysql-jpa-rules.md](303-database-mysql-jpa-rules.md)
 
 ## 1. Architecture Overview
 

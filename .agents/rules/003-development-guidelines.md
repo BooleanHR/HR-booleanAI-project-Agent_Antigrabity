@@ -4,7 +4,6 @@ globs: ["**/*"]
 alwaysApply: true
 ---
 # Development Guidelines
-Referenced in: [001-project-overview.md](001-project-overview.md), [002-tech-stack.md](002-tech-stack.md)
 
 ## Version Control
 - **System:** Git

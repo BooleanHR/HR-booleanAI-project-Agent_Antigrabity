@@ -6,7 +6,6 @@ allowed-tools: Read, Edit, Write, Grep, Glob, Bash
 
 # Build & Environment Setup
 
-원본: `.cursor/skills/101-build-and-env-setup/SKILL.md`
 
 대상 환경: **$ARGUMENTS** (미지정 시 `dev` 로 간주)
 

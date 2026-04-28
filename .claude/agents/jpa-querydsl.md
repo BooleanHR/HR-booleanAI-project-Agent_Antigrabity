@@ -7,7 +7,6 @@ model: sonnet
 
 # JPA + QueryDSL Dynamic Query Expert
 
-원본: `.cursor/skills/302-jpa-querydsl-dynamic-query-rules/SKILL.md`
 
 ## 적용 범위
 - `src/main/java/**/*Repository*`

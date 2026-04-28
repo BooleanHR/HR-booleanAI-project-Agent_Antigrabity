@@ -1,7 +1,6 @@
 # Project
 
 이 문서는 Claude Code가 작업 시작 시 자동으로 로드하는 프로젝트 컨텍스트입니다.
-(원본: `.cursor/rules/001-project-overview.mdc`, `002-tech-stack.mdc`, `003-development-guidelines.mdc`, `.cursor/skills/201-code-commenting/SKILL.md`)
 
 ---
 
@@ -103,5 +102,4 @@
 ---
 
 ## 5. 참고
-- 원본 Cursor 룰셋은 `.cursor/rules/` 에 보존되어 있으며, Cursor 사용자와 병행 유지 가능합니다.
 - 새 규칙을 추가할 때: 항상 적용은 이 파일, 도메인 지식은 서브에이전트, 절차·프로세스는 슬래시 커맨드에 작성합니다.

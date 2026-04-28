@@ -7,7 +7,6 @@ model: sonnet
 
 # Java / Spring Boot Expert
 
-원본: `.cursor/skills/300-java-spring-cursor-rules/SKILL.md`
 
 ## Code Style and Structure
 - Clean, efficient, well-documented Java code with Spring Boot 예제 기반.

@@ -4,7 +4,6 @@ globs:
 alwaysApply: true
 ---
 # Development Guidelines
-Referenced in: [001-project-overview.mdc](001-project-overview.mdc), [002-tech-stack.mdc](002-tech-stack.mdc)
 
 ## Version Control
 - System: Git

@@ -4,7 +4,6 @@ globs:
 alwaysApply: true
 ---
 # Technical Stack
-Referenced in: [001-project-overview.mdc](001-project-overview.mdc)
 
 ## Frontend
 - Framework: React

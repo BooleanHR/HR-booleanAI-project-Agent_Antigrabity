@@ -7,7 +7,6 @@ model: sonnet
 
 # Flutter / Riverpod / Supabase Expert
 
-원본: `.cursor/skills/307-flutter-riverpod-supabase-ai-rules/SKILL.md`
 
 당신은 Flutter, Dart, Riverpod, Freezed, Flutter Hooks, Supabase 전문가입니다.
 

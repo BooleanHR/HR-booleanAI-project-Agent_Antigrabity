@@ -7,7 +7,6 @@ model: sonnet
 
 # Gradle (Groovy) Expert
 
-원본: `.cursor/skills/301-gradle-groovy-rules/SKILL.md`
 
 ## Essential Configuration Template
 ```groovy

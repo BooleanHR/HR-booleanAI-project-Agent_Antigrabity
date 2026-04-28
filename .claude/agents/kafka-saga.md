@@ -7,7 +7,6 @@ model: sonnet
 
 # Kafka-based Saga Orchestration Expert
 
-원본: `.cursor/skills/305-kafka-msa-saga-pattern-rules/SKILL.md`
 
 ## 적용 범위
 - `src/main/java/**/*Saga*`
