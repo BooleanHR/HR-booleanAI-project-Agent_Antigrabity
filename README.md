@@ -6,9 +6,6 @@
 - 🪄 **Cursor**: [README-cursor-harness.md](README-cursor-harness.md)
 - 🌌 **Google Antigravity & Gemini CLI**: [README-gemini-harness.md](README-gemini-harness.md)
 - 🤖 **Claude Code**: [README-claude-harness.md](README-claude-harness.md)
-
----
-
 - 🌐 **공통 환경 (Cross-Tool Harness)**: 여러 도구에서 공유 및 적용 가능한 설정 및 한계점은 [README-common-harness.md](README-common-harness.md)를 참고하세요.
 
 ## 🚀 AI 에이전트 하네스 타입 (자율성 증가 순)
