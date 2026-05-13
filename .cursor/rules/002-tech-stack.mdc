@@ -1,29 +1,27 @@
 ---
-description: 
+description: 기술 스택 정의 — 모든 대화에 자동 적용
 globs: 
 alwaysApply: true
 ---
-# Technical Stack
+# 기술 스택
 
-## Frontend
-- Framework: React
-- Styling: Tailwind CSS
+## Frontend + Backend
+- **Framework:** Next.js 14 (App Router) + TypeScript (strict)
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Server Logic:** Server Actions + Route Handlers
 
-## Backend
-- Core: Spring Boot
-- Template Engine: Thymeleaf
-- Caching: Redis
-- Message Queue: Apache Kafka
+## Database
+- Prisma ORM + SQLite (로컬 전용)
 
-## Authentication
-- OAuth2 Providers:
-  - Google
-  - KakaoTalk
+## AI / OCR
+- Google Gemini 1.5 Pro Vision (Vercel AI SDK)
 
-## External Services
-- AI/ML Integration:
-  - Hugging Face API
-  - OpenAI API
+## RPA
+- Puppeteer + puppeteer-extra + stealth plugin
+- node-cron (헬스체크 스케줄러)
 
-## See also:
-- [003-development-guidelines.mdc](003-development-guidelines.mdc) for usage guidelines
+## 문서/이미지/엑셀
+- sharp (이미지 변환), pdf-lib (PDF), exceljs (엑셀), Resend (이메일)
+
+## 보안
+- AES-256-GCM (계정 암호화), SHA-256 (캡처 해싱)

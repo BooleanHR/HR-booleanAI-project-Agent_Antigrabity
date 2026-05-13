@@ -1,0 +1,20 @@
+---
+description: Gemini Vision OCR 규칙 — AI/OCR 코드 편집 시 자동 적용
+globs: "src/**/ai/**/*.ts, lib/ai/**/*.ts"
+alwaysApply: false
+---
+# Gemini Vision OCR 규칙
+
+## 프롬프트
+- `doc_category`별 전용 프롬프트. 단일 프롬프트 금지.
+- 출력: `generateObject` + Zod 스키마. 자유 텍스트 금지.
+- `confidence_score` 필수. < 70% → MANUAL_REVIEW.
+
+## 서류 판별
+- 졸업: `doc_source` (webminwon/certpia/gov24/icerts).
+- 자격증: `cert_form_type` (수첩형/상장형/카드형/확인서).
+- 경력: `career_records` 배열 추출.
+
+## 보안
+- 주민번호 자동 마스킹.
+- 원본 이미지 로컬에만 저장.

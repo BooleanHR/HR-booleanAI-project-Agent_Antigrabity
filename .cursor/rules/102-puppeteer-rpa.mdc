@@ -1,0 +1,27 @@
+---
+description: Puppeteer RPA 규칙 — RPA 코드 편집 시 자동 적용
+globs: "src/**/rpa/**/*.ts, lib/rpa/**/*.ts"
+alwaysApply: false
+---
+# Puppeteer RPA 규칙
+
+## 셀렉터
+- `agency_config.json`에서 배열로 로드. 하드코딩 금지.
+- 폴백 순서: ID → name → class → placeholder.
+- 전체 실패 시 Gemini DOM 분석.
+
+## 4단계 폴백
+1. Stealth Plugin
+2. Chrome 프로파일 재활용
+3. API 직접 호출
+4. Mock + MANUAL_REVIEW
+
+## 보안
+- 기관 계정 AES-256-GCM 암호화. 로그 평문 금지.
+- 캡처 SHA-256 해시 + 타임스탬프 저장.
+
+## 안정성
+- `page.goto()` timeout: 30s.
+- `waitForSelector()` timeout: 10s.
+- 입력 `{ delay: 50 }`.
+- `finally`에서 `browser.close()`.

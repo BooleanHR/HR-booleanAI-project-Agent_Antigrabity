@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "project": "HR AI 서류 진위확인 솔루션",
+  "updated_at": "2026-05-13",
+  "tasks": {
+    "RX-001": { "status": "pending", "agent": "rpa-engine", "phase": 1, "complexity": "L", "title": "Puppeteer + Stealth 로컬 환경 구성", "depends_on": [], "blocks": ["RX-002", "RX-003", "RX-007"] },
+    "RX-007": { "status": "pending", "agent": "rpa-engine", "phase": 1, "complexity": "M", "title": "기관 계정 AES-256-GCM 암호화 저장", "depends_on": ["RX-001"], "blocks": [] },
+    "RX-003": { "status": "pending", "agent": "rpa-engine", "phase": 2, "complexity": "H", "title": "다중 셀렉터 + AI 자가복구 시스템", "depends_on": ["RX-001"], "blocks": ["RX-002", "RX-004"] },
+    "RX-002": { "status": "pending", "agent": "rpa-engine", "phase": 2, "complexity": "H", "title": "4단계 폴백 캡처 엔진", "depends_on": ["RX-001", "RX-003"], "blocks": ["RX-004", "RX-005", "RY-001"] },
+    "RX-004": { "status": "pending", "agent": "rpa-engine", "phase": 2, "complexity": "M", "title": "사이트 헬스체크 스케줄러", "depends_on": ["RX-002", "RX-003"], "blocks": [] },
+    "RX-005": { "status": "pending", "agent": "ocr-ai-pipeline", "phase": 3, "complexity": "H", "title": "AI Reviewer Agent (Gemini Vision)", "depends_on": ["RX-002"], "blocks": ["RX-006", "RY-003"] },
+    "RX-006": { "status": "pending", "agent": "nextjs-dashboard", "phase": 3, "complexity": "M", "title": "대시보드 AI 검토 결과 패널 UI", "depends_on": ["RX-005"], "blocks": [] },
+    "RY-001": { "status": "pending", "agent": "rpa-engine", "phase": 5, "complexity": "M", "title": "agency_config.json hot-load 시스템", "depends_on": ["RX-002", "RX-003"], "blocks": ["RY-002", "RY-004", "RY-005", "RY-006"] },
+    "RY-006": { "status": "pending", "agent": "ocr-ai-pipeline", "phase": 5, "complexity": "H", "title": "서류 유형별 OCR 프롬프트 분기 시스템", "depends_on": ["RY-001"], "blocks": ["RY-007"] },
+    "RY-002": { "status": "pending", "agent": "nextjs-dashboard", "phase": 5, "complexity": "M", "title": "기관 설정 PM 셀프서비스 UI", "depends_on": ["RY-001"], "blocks": ["RY-003"] },
+    "RY-004": { "status": "pending", "agent": "ocr-ai-pipeline", "phase": 5, "complexity": "M", "title": "진위확인 불가 서류 대체 처리 엔진", "depends_on": ["RY-001"], "blocks": [] },
+    "RY-005": { "status": "pending", "agent": "ocr-ai-pipeline", "phase": 5, "complexity": "M", "title": "유효기간 자동 판정 + 이전 자격증 검토", "depends_on": ["RY-001"], "blocks": [] },
+    "RY-007": { "status": "pending", "agent": "ocr-ai-pipeline", "phase": 5, "complexity": "H", "title": "경력사항 career_records 1:N 대조", "depends_on": ["RY-006"], "blocks": [] },
+    "RY-003": { "status": "pending", "agent": "ocr-ai-pipeline", "phase": 6, "complexity": "H", "title": "AI 자동 URL 분석 (셀렉터 자동 탐지)", "depends_on": ["RY-002", "RX-005"], "blocks": [] }
+  }
+}

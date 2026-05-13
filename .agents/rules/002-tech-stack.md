@@ -1,32 +1,36 @@
 ---
-description: Project technical stack definition (Backend Focus)
+description: HR AI 서류 진위확인 솔루션 기술 스택 정의
 alwaysApply: true
 ---
-# Technical Stack
+# 기술 스택
 
-## Backend Core (Spring Boot)
-- Language: Java 21 (LTS)
-- Framework: Spring Boot 4.0.0
-- Build Tool: Gradle (Kotlin DSL recommended)
-- Database: MySQL 8.x (InnoDB, utf8mb4)
-- ORM: Spring Data JPA (Hibernate)
-- Testing: JUnit 5, Mockito, AssertJ
+## Frontend + Backend (Unified)
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Server Logic:** Next.js Server Actions + Route Handlers
 
-## AI & Document Engine (Python)
-- Language: Python 3.10+
-- Framework: FastAPI
-- AI Orchestration: LangChain
-- Testing: Pytest
-- LLM Provider: Google Gemini (via Internal Gateway)
+## Database
+- **ORM:** Prisma
+- **DB:** SQLite (로컬 전용)
 
-## Infrastructure & Tools
-- Containerization: Docker, Docker Compose
-- API Documentation: Swagger/OpenAPI 3.0
-- Version Control: Git
+## AI / OCR
+- **LLM:** Google Gemini 1.5 Pro Vision
+- **SDK:** Vercel AI SDK (`ai` 패키지, `generateObject` 함수)
 
-## See also:
-- [003-development-guidelines.md](003-development-guidelines.md) for usage guidelines
-- [301-spring-boot-java-rules.md](301-spring-boot-java-rules.md) for Java/Spring rules
-- [302-python-fastapi-rules.md](302-python-fastapi-rules.md) for Python/FastAPI rules
-- [303-database-mysql-jpa-rules.md](303-database-mysql-jpa-rules.md) for Database rules
-- [304-api-rest-design-rules.md](304-api-rest-design-rules.md) for API standards
+## RPA
+- **Core:** Puppeteer + puppeteer-extra + puppeteer-extra-plugin-stealth
+- **스케줄러:** node-cron
+
+## 문서 / 이미지 / 엑셀
+- **이미지:** sharp (HEIC→JPG, EXIF 회전 보정)
+- **PDF:** pdf-lib (감사 리포트)
+- **엑셀:** exceljs
+- **이메일:** Resend API
+
+## 보안
+- **암호화:** Node.js crypto (AES-256-GCM)
+- **해싱:** SHA-256
+
+## 참조
+- [003-development-guidelines.md](003-development-guidelines.md) — 개발 가이드라인

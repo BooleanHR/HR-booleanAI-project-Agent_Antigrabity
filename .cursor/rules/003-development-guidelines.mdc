@@ -1,21 +1,28 @@
 ---
-description: 
+description: 개발 가이드라인 — 보안, 코드 스타일, 성능 기준
 globs: 
 alwaysApply: true
 ---
-# Development Guidelines
+# 개발 가이드라인
 
-## Version Control
-- System: Git
-- Repository Management: GitHub APIs
+## 아키텍처
+- 로컬 퍼스트: 데이터 로컬 저장, 클라우드 전송 금지.
+- 폴백 설계: 외부 연동 실패 가정 필수.
+- Hot-reload: agency_config.json 변경 시 재시작 불필요.
 
-## Development Priorities
-1. Utilize listed tech stack components ([002-tech-stack.mdc](002-tech-stack.mdc))
-2. Prefer frameworks with robust documentation and community support
-3. Implement proven design patterns and best practices
+## 보안
+- 기관 계정 AES-256-GCM 암호화. 로그에 평문 금지.
+- 주민번호 OCR 추출 시 자동 마스킹.
 
-## Architecture Principles
-- Modular design for easy maintenance
-- Scalable infrastructure
-- Secure data handling
-- Performance optimization
+## 코드 스타일
+- TypeScript strict mode.
+- React 함수형 + Server Components 우선.
+- camelCase(변수), PascalCase(컴포넌트), kebab-case(파일).
+- import 절대 경로 (`@/lib/...`, `@/components/...`).
+- WHY 중심 주석.
+
+## 성능
+- 대시보드 전환 < 500ms, OCR < 5초, RPA < 15초.
+
+## 버전 관리
+- Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`).

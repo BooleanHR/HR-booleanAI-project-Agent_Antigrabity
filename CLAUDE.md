@@ -4,102 +4,70 @@
 
 ---
 
-## 1. Project Overview
+## 1. 프로젝트 개요
 
-### Vision
-프로젝트의 비전과 해결하려는 문제를 여기에 기술합니다. (템플릿 — 실제 프로젝트에 맞게 수정하세요.)
+### 비전
+HR AI 서류 진위확인 솔루션 — 채용 서류(졸업증명서, 자격증, 경력증명서, 어학성적)의 진위를 AI + RPA 기반으로 자동 확인하여 HR 담당자의 수동 검토 시간을 건당 12분 → 30초 이하로 단축.
 
-### Core Features
-- Feature 1: …
-- Feature 2: …
-- Feature 3: …
+### 핵심 기능
+- Triple Check Pipeline (입사지원서 × OCR × 기관DB 3중 교차 검증)
+- Puppeteer RPA 엔진 (정부24, Q-Net, YBM, OPIc 등 자동 조회 + 4단계 폴백)
+- Gemini Vision OCR (25개 서류 유형별 전용 프롬프트)
+- AI Reviewer Agent (APPROVE / REJECT / ESCALATE 판정)
+- 대시보드 (검증 현황, AI 검토 결과, 최종 승인/반려)
+- 기관 URL 커스텀 설정 (PM 셀프서비스, hot-load)
 
-### Target Audience
-- Primary users: …
-- Secondary users: …
-
-### Project Philosophy
-- 높은 유지보수성과 확장성 있는 아키텍처를 우선한다.
-- 시니어 엔지니어링 관행과 표준을 따른다.
-- 포괄적이고 최신 상태를 유지하는 문서를 남긴다.
-
----
-
-## 2. Tech Stack
-
-### Frontend
-- Framework: React (Vite 템플릿)
-- Styling: Tailwind CSS
-
-### Backend
-- Core: Spring Boot 3.x (Java 17+)
-- Template Engine: Thymeleaf
-- Caching: Redis (Lettuce / Redisson)
-- Message Queue: Apache Kafka
-
-### Authentication
-- OAuth2 Providers: Google, KakaoTalk
-
-### External Services
-- AI/ML: Hugging Face API, OpenAI API
-
-### Mobile (선택)
-- Flutter + Riverpod + Supabase
+### 아키텍처 원칙
+- **로컬 퍼스트:** 모든 데이터 로컬 저장. 클라우드 전송 원천 차단.
+- **폴백 설계:** 모든 외부 연동은 실패를 가정하고 폴백 전략 구현.
+- **보안:** 기관 계정 AES-256-GCM 암호화, 주민번호 자동 마스킹.
 
 ---
 
-## 3. Development Guidelines
+## 2. 기술 스택
 
-### Version Control
-- System: Git
-- Repository: GitHub (GitHub APIs 활용)
-
-### Development Priorities
-1. 위 Tech Stack에 명시된 구성요소를 우선 활용한다.
-2. 문서화와 커뮤니티가 튼튼한 프레임워크를 선호한다.
-3. 검증된 디자인 패턴과 모범 사례를 적용한다.
-
-### Architecture Principles
-- 모듈화된 설계 (유지보수 용이성)
-- 확장 가능한 인프라
-- 안전한 데이터 처리
-- 성능 최적화
-
-### Code Comments
-- 의미 있는 주석만 작성한다 (WHY 중심, WHAT는 코드로 표현).
-- 사용되지 않거나 쓸모없어진 주석은 즉시 제거한다.
-- 주석은 가독성과 유지보수성을 높여야 한다.
-
-### Problem Solving
-- 에러/예외 처리가 필요하면 `/fix-error` 슬래시 커맨드로 구조화된 7단계 진단을 수행한다.
+- **Framework:** Next.js 14 (App Router) + TypeScript
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Database:** SQLite (Prisma ORM)
+- **AI/OCR:** Google Gemini 1.5 Pro Vision (Vercel AI SDK)
+- **RPA:** Puppeteer + puppeteer-extra-plugin-stealth
+- **문서:** sharp, pdf-lib, exceljs
+- **보안:** AES-256-GCM (Node.js crypto), SHA-256
 
 ---
 
-## 4. Subagent & Command Routing
+## 3. 개발 가이드라인
 
-작업 성격에 따라 적합한 서브에이전트 또는 슬래시 커맨드가 자동으로 위임됩니다.
-수동 호출이 필요하면 `> use the <agent-name> subagent` 또는 `/<command>` 형태로 지시하세요.
+### 코드 스타일
+- TypeScript strict mode 필수.
+- React 함수형 + Server Components 우선.
+- import 절대 경로 (`@/lib/...`, `@/components/...`).
+- WHY 중심 주석. 불필요한 주석 즉시 제거.
 
-### Subagents (`.claude/agents/`)
+### 코드 코멘트
+- 의미 있는 주석만 작성 (WHY 중심, WHAT는 코드로 표현).
+- 사용되지 않거나 쓸모없어진 주석은 즉시 제거.
+
+### 문제 해결
+- 에러/예외 처리가 필요하면 에러 진단 7단계 프로세스를 따름.
+
+---
+
+## 4. 서브에이전트 & 스킬 라우팅
+
+작업 성격에 따라 적합한 서브에이전트를 활용합니다.
+
+### 서브에이전트 (`.claude/agents/`)
 | 에이전트 | 사용 시점 |
 |---|---|
-| `java-spring` | Java/Spring Boot 컨트롤러·서비스·리포지토리·REST API 작업 |
-| `gradle` | `build.gradle` / Groovy 빌드 설정, 의존성·태스크 구성 |
-| `jpa-querydsl` | JPA + QueryDSL 동적 쿼리, BooleanBuilder, 리포지토리 |
-| `spring-redis` | Redis 클라이언트 선택(Lettuce vs Redisson), 캐싱·분산락 |
-| `kafka-pipeline` | Kafka 토픽 설계, 파티셔닝, 컨슈머 멱등성 |
-| `kafka-saga` | Kafka 기반 Saga 오케스트레이션, 보상 트랜잭션 |
-| `react-frontend` | React + Vite + Tailwind 프론트엔드 구현 |
-| `flutter-app` | Flutter + Riverpod + Supabase 모바일 앱 구현 |
-
-### Slash Commands (`.claude/commands/`)
-| 커맨드 | 목적 |
-|---|---|
-| `/fix-error` | 에러/예외 발생 시 7단계 구조화 진단·수정 |
-| `/setup-env` | 빌드 프로세스 및 환경변수 설정 절차 |
-| `/gitflow-commit` | Git Flow 준수 커밋·PR 자동화 |
+| `rpa-engine` | Puppeteer RPA 캡처 엔진, 4단계 폴백, 셀렉터 관리, 헬스체크 |
+| `ocr-ai-pipeline` | Gemini Vision OCR, AI Reviewer Agent, 프롬프트 작성 |
+| `nextjs-dashboard` | Next.js 14 대시보드 UI, 기관 설정 폼, 검증 결과 패널 |
+| `document-updater` | PRD/SRS/Harness 문서 업데이트, 커밋 전 문서 동기화 |
 
 ---
 
 ## 5. 참고
-- 새 규칙을 추가할 때: 항상 적용은 이 파일, 도메인 지식은 서브에이전트, 절차·프로세스는 슬래시 커맨드에 작성합니다.
+- 전체 프로젝트 규칙은 `AGENTS.md` 참조 (Cross-Tool 공통).
+- 도메인 용어 사전은 `AGENTS.md` §005 참조.
+- 상세 기술 명세는 `docs/PRD-HR-AI-Verification-v1_2.md`, `docs/SRS-HR-AI-Verification-v1_3.md` 참조.

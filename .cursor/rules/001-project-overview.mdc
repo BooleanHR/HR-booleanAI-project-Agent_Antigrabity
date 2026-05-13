@@ -1,42 +1,26 @@
 ---
-description: Project overview template - customize for your specific project
+description: HR AI 서류 진위확인 프로젝트 개요 — 모든 대화에 자동 적용
 globs: 
 alwaysApply: true
 ---
-# PROJECT OVERVIEW: [PROJECT NAME]
+# 프로젝트 개요: HR AI 서류 진위확인 솔루션
 
-## Vision
-[Describe your project's overarching vision and purpose. What problem does it solve? What impact do you want to make?]
+## 비전
+채용 서류(졸업증명서, 자격증, 경력증명서, 어학성적) 진위를 AI + RPA로 자동 확인.
+HR 담당자 검토 시간 건당 12분 → 30초 이하.
 
-## Core Features
-[List the main features and capabilities of your project]
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
+## 핵심 기능
+- **Triple Check Pipeline:** 입사지원서 × OCR × 기관DB 3중 교차 검증
+- **Puppeteer RPA:** 정부24, Q-Net, YBM, OPIc 등 자동 조회 + 4단계 폴백
+- **Gemini Vision OCR:** 25개 서류 유형별 전용 프롬프트
+- **AI Reviewer:** APPROVE / REJECT / ESCALATE 판정
+- **대시보드:** 검증 현황 + AI 검토 결과 + 승인/반려 UI
+- **기관 URL 설정:** PM 셀프서비스, hot-load
 
-## Target Audience
-[Define who will use this project]
-- Primary users: [Description]
-- Secondary users: [Description]
+## 아키텍처
+- 로컬 퍼스트 — 데이터 클라우드 전송 원천 차단
+- 파이프라인 — 스캔→변환→OCR→Layer1→RPA→Layer2→AI Review→결과
 
-## Project Goals
-[Specific, measurable objectives]
-- Goal 1: [Description]
-- Goal 2: [Description]
-- Goal 3: [Description]
-
-## Success Metrics
-[How will you measure success?]
-- Metric 1: [Description]
-- Metric 2: [Description]
-
-## Project Philosophy
-[Your development principles and values]
-- Emphasis on high maintainability and scalable architecture
-- Senior engineering practices and standards
-- Comprehensive documentation
-- [Add your specific principles here]
-
-## See also:
-- [002-tech-stack.mdc](002-tech-stack.mdc) for implementation details
-- [003-development-guidelines.mdc](003-development-guidelines.mdc) for development standards
+## 참조
+- [002-tech-stack.mdc](002-tech-stack.mdc)
+- [003-development-guidelines.mdc](003-development-guidelines.mdc)
