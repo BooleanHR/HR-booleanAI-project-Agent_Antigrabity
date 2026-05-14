@@ -137,28 +137,28 @@ gantt
     section Phase 2 RPA 엔진
     RX-003 다중 셀렉터              :crit, rx003, after rx001, 3d
     RX-002 4단계 폴백 캡처          :crit, rx002, after rx003, 3d
-    RX-004 헬스체크 스케줄러        :rx004, after rx002, 2d
+    RX-004 헬스체크 스케줄러        :active, rx004, after rx002, 2d
 
     section Phase 3 AI Reviewer
     RX-005 AI Reviewer Agent        :crit, rx005, after rx002, 4d
-    RX-006 AI 검토 UI               :rx006, after rx005, 2d
+    RX-006 AI 검토 UI               :active, rx006, after rx005, 2d
 
     section Phase 4 통합
-    파이프라인 통합 테스트           :p001, after rx006, 2d
+    파이프라인 통합 테스트           :active, p001, after rx006, 2d
 
     section Phase 5 SRS v1.3 기능
-    RY-001 agency config 시스템     :ry001, after p001, 2d
+    RY-001 agency config 시스템     :active, ry001, after p001, 2d
     RY-006 OCR 프롬프트 분기        :active, ry006, after ry001, 3d
     RY-002 기관 설정 UI             :active, ry002, after ry001, 2d
     RY-004 불가 서류 처리           :active, ry004, after ry001, 3d
     RY-005 유효기간 판정            :active, ry005, after ry001, 2d
-    RY-007 경력 1:N 대조            :ry007, after ry006, 3d
+    RY-007 경력 1:N 대조            :active, ry007, after ry006, 3d
 
     section Phase 6 Enhancement
-    RY-003 AI URL 분석              :ry003, after ry002, 2d
+    RY-003 AI URL 분석              :active, ry003, after ry002, 2d
 
     section Phase 7 릴리스
-    E2E 통합 테스트                 :milestone, e2e, after ry007, 2d
+    E2E 통합 테스트                 :active, e2e, after ry007, 2d
 ```
 
 ### WBS 요약표
